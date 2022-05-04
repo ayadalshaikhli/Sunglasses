@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.4",
+    "@react-spring/three": "^9.4.4",
+    "@react-spring/web": "^9.4.4",
+    "@react-three/drei": "^8.19.4",
+    "@react-three/fiber": "^7.0.26",
+    "aliexpress-product-scraper": "^1.0.6",
+    "axios": "^0.25.0",
+    "firebase": "^9.6.10",
+    "framer-motion": "^6.3.3",
+    "gsap": "^3.9.1",
+    "lerp": "^1.0.3",
+    "lil-gui": "^0.16.1",
+    "next": "^11.1.0",
+    "react": "^17.0.2",
+    "react-colorful": "^5.5.1",
+    "react-dom": "^17.0.2",
+    "react-gsap": "^3.2.1",
+    "react-icons": "^4.3.1",
+    "react-intersection-observer": "^8.33.1",
+    "react-three-gui": "^0.4.2",
+    "sass": "^1.38.2",
+    "swiper": "^6.7.5",
+    "swr": "^1.2.0",
+    "three": "^0.139.0",
+    "valtio": "^1.4.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.4"
+  }
+}
