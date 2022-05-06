@@ -39,7 +39,7 @@ export default function Home({ products, rings, earrings, necklaces }) {
   return (
     <div className="relative body">
       <Head>
-        <title>PetMarkte</title>
+        <title>Tataroski</title>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
           httpEquiv="Content-Type"
@@ -52,7 +52,7 @@ export default function Home({ products, rings, earrings, necklaces }) {
           create the unique one for everyone. We love every passion and interest
           on Earth because it is a reference to the UNIQUENESS of everything."
         />
-        <meta property="og:title" content="PetMarkte" />
+        <meta property="og:title" content="Tataroski" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.buildnextshop.com" />
         <meta
@@ -82,9 +82,9 @@ export default function Home({ products, rings, earrings, necklaces }) {
       >
         <FrontPage />
         <ProductList products={products} />
-        {/* <SecoundCollectionList earrings={earrings} />
+        <FirstCollectionList rings={rings} />
+        <SecoundCollectionList earrings={earrings} />
         <ThirdCollectionList necklaces={necklaces} />
-        <FirstCollectionList rings={rings} /> */}
       </motion.div>
     </div>
   );
@@ -92,12 +92,12 @@ export default function Home({ products, rings, earrings, necklaces }) {
 
 export async function getStaticProps() {
   const products = await getProductsInCollection();
-  // const rings = await getProductsRingCollection();
-  // const earrings = await getProductsEarringsCollection();
-  // const necklaces = await getProductsNecklacesCollection();
+  const rings = await getProductsRingCollection();
+  const earrings = await getProductsEarringsCollection();
+  const necklaces = await getProductsNecklacesCollection();
 
   return {
-    props: { products },
+    props: { products, rings, earrings, necklaces },
     // will be passed to the page component as props
   };
 }

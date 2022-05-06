@@ -12,6 +12,21 @@ export default function FrontPage() {
   useEffect(() => {
     const target = new Date("04/18/2022 23:59:59");
 
+    gsap.from(".firstWord", {
+      xPercent: 100,
+      duration: 3.0,
+      delay: 2.5,
+      ease: Expo.easeInOut,
+    });
+    tl.from(".simp", 1, {
+      x: "100",
+      opacity: 0,
+      stagger: 0.15,
+      scale: ".8",
+      delay: 3.0,
+      ease: Expo.easeInOut,
+    });
+
     const interval = setInterval(() => {
       const now = new Date();
 
@@ -40,7 +55,10 @@ export default function FrontPage() {
   }, []);
 
   return (
-    <div style={{ height: "70vh" }} className="relative text-white">
+    <div
+      style={{ height: "70vh" }}
+      className="relative flex items-end justify-center text-center text-white"
+    >
       {/* <h1 className="text-center text-xl">5 YEAR ANNIVERSARY SALE</h1>
       <div className="flex relative justify-center text-center ">
         <div className="flex pt-10   uppercase text-gray-900 sm:opacity-50 text-7xl sm:text-9xl">
@@ -75,6 +93,27 @@ export default function FrontPage() {
             and color.
           </span>
         </div>
+      </div> */}
+
+      {/* <div
+        style={{
+          fontSize: "8.3rem",
+        }}
+        className="text-opening"
+      >
+        <h1 className="firstWord">
+          Elegant <span className="simp">in Their</span>
+          <span className="simp"> S</span>
+          <span className="simp">i</span>
+          <span className="simp">m</span>
+          <span className="simp">p</span>
+          <span className="simp">l</span>
+          <span className="simp">i</span>
+          <span className="simp">c</span>
+          <span className="simp">i</span>
+          <span className="simp">t</span>
+          <span className="simp">y</span>
+        </h1>
       </div> */}
     </div>
   );

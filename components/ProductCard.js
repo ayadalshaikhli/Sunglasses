@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import { formatter } from "../utils/helpers";
 import { motion } from "framer-motion";
 const ProductCard = ({ product }) => {
@@ -34,6 +35,10 @@ const ProductCard = ({ product }) => {
       },
     },
   };
+  const [isHovering, setIsHovered] = useState(false);
+  const onMouseEnter = () => setIsHovered(true);
+  const onMouseLeave = () => setIsHovered(false);
+
   return (
     <Link href={`/products/${handle}`}>
       <motion.div
@@ -41,40 +46,51 @@ const ProductCard = ({ product }) => {
         transition={{ delay: 1.2 }}
         initial="initial"
         animate="animate"
+        className="pb-8"
       >
-        <a className="group pb-8">
+        <a className="group pb-8 ">
           <motion.div
             variants={fadeInUp}
-            className="w-full bg-gray-900 rounded-2xl overflow-hidden"
+            className="w-full bg-gray-900 rounded-t-2xl overflow-hidden"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
           >
             <div className="relative group-hover:opacity-75 h-56">
-              <Image
-                src={originalSrc}
-                alt={altText}
-                layout="fill"
-                objectFit="cover"
-              />
+              {isHovering ? (
+                <Image
+                  src={product.node.images.edges[1].node.originalSrc}
+                  alt={product.node.images.edges[1].node.originalSrc.altText}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              ) : (
+                <Image
+                  src={product.node.images.edges[0].node.originalSrc}
+                  alt={product.node.images.edges[0].node.originalSrc.altText}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              )}
             </div>
           </motion.div>
-          <motion.h3
-            variants={fadeInUp}
-            className="mt-4 text-lg font-medium text-gray-900 uppercase"
-          >
-            {title}
-          </motion.h3>
-          <div className="flex ">
-            <motion.p
+          <div className="bg-white rounded-b-2xl pl-2 pt-2 h-1/3 flex flex-col justify-center">
+            <motion.h3
               variants={fadeInUp}
-              className="mt-1 pr-2 text-sm text-red-700 line-through"
+              className="mt-4 text-lg font-medium text-gray-900 uppercase"
             >
-              {formatter.format(compare)}
-            </motion.p>
-            <motion.p
-              variants={fadeInUp}
-              className="mt-1 text-sm text-gray-900"
-            >
-              {formatter.format(price)}
-            </motion.p>
+              {title}
+            </motion.h3>
+            <div className="flex text-sm mt-1">
+              <motion.p
+                variants={fadeInUp}
+                className=" pr-2 text-red-700 line-through"
+              >
+                {formatter.format(compare)}
+              </motion.p>
+              <motion.p variants={fadeInUp} className=" text-gray-900">
+                {formatter.format(price)}
+              </motion.p>
+            </div>
           </div>
         </a>
       </motion.div>

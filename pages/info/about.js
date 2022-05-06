@@ -4,7 +4,7 @@ import About from "../../components/About";
 function infoAbout() {
   return (
     <>
-      <div>
+      <div className="">
         <About />
       </div>
     </>

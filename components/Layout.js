@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 import Hero from "./Hero";
+import IntroAnimation from "./IntroAnimation";
 import Nav from "./Nav";
 export default function Layout({ children }) {
   return (
@@ -23,9 +24,10 @@ export default function Layout({ children }) {
           margin-bottom: 10px;
         }
       `}</style>
+      <IntroAnimation />
       <Nav />
       <Hero />
-      <main>{children}</main>
+      <main style={{ zIndex: "10" }}>{children}</main>
 
       <Footer />
     </div>

@@ -31,11 +31,7 @@ const Lights = () => {
       <ambientLight intensity={0.1} />
       {/* Diretion light */}
       <directionalLight position={[10, 10, 5]} intensity={0.5} />
-      <directionalLight
-        position={[-100, 10, 5]}
-        intensity={3.5}
-        color={"#FAFD0F"}
-      />
+      <directionalLight position={[-100, 10, 5]} intensity={1.5} />
 
       <directionalLight
         castShadow
@@ -93,9 +89,10 @@ function Green() {
     // cup.current.rotation.x = 5.63;
     // cup.current.rotation.y = 4.1;
 
-    gsap.from(cam.current.position, 3, {
-      x: -10.5,
-      z: -5,
+    gsap.from(cam.current.position, 4, {
+      x: -3.5,
+      z: -3,
+
       ease: Expo.easeOut,
     });
     // gsap.from(cup.current.position, 60, {
@@ -237,7 +234,7 @@ function Green() {
                 geometry={nodes.frame.geometry}
                 material={materials.Horn}
                 position={[0, 0.04, 0.0]}
-                rotation={[-0.1, -0.2, 0]}
+                rotation={[-0.1, -0.7, 0]}
                 castShadow
               >
                 <mesh
@@ -250,7 +247,6 @@ function Green() {
                     transparent
                     opacity={0.7}
                     roughness={0}
-                    color="#B1590B"
                   />
                 </mesh>
                 <mesh
@@ -278,11 +274,7 @@ function Green() {
                   castShadow
                   receiveShadow
                 >
-                  <meshStandardMaterial
-                    attach="material"
-                    roughness={0.2}
-                    color="black"
-                  />
+                  <meshStandardMaterial attach="material" color="black" />
                 </mesh>
               </mesh>
             </group>

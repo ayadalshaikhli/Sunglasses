@@ -181,11 +181,11 @@ export default function contect() {
           </div>
         </section>
       </form> */}
-      <div className="shipping flex flex-col text-center text-white h-screen">
+      <div className="shipping flex flex-col text-center align-middle items-center justify-center text-white  h-screen mt-32">
         <div className="shipping__title p-10 text-lg font-bold a">
           Contact Us
         </div>
-        <div className=" w-full text-center ">
+        <div className=" sm:w-1/2 text-center bg-gray-800/75 rounded-md  ">
           We're here to help! Send us a message and we'll get back to you within
           48 hours. <br /> Please note that we are currently experiencing a
           higher than normal volume of customer inquiries and may require 3-5

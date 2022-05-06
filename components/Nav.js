@@ -30,8 +30,8 @@ export default function Nav() {
 
   useEffect(() => {
     const showAnim = gsap
-      .from("header", {
-        yPercent: -100,
+      .from(".nav-main", {
+        yPercent: -200,
         paused: true,
         duration: 0.2,
       })
@@ -48,53 +48,57 @@ export default function Nav() {
   });
 
   return (
-    <header className="fixed w-full  flex flex-col justify-between text-center z-20  text-white colornav navbar">
-      <div className="shipping text-center">
-        <h1>FREE SHIPPING</h1>
+    <header className="fixed w-full  flex flex-col text-center z-20  text-white colornav navbar">
+      <div className="shipping text-center bg-gray-800/40">
+        <h1>
+          {free} {Good}
+        </h1>
       </div>
-      <div className="flex flex-col items-center justify-between max-w-6xl pt-4 pb-2 px-4 mx-auto lg:max-w-screen-xl">
-        <div className="flex">
+      <div className="nav-main  flex flex-col sm:flex-row p-2 lg:max-w-screen-xl text-center items-center">
+        <div className="logo">
           <Link href="/" passHref>
             <a className="cursor-pointer">
-              <h1 className="text-4xl pt-1  font-mono">
-                <span className="late-text">Pet</span>
-                <span className="omo"> Markte</span>
+              <h1 className="text-2xl pt-1   font-mono">
+                <span className="late-text">tata</span>
+                <span className="omo">roski</span>
               </h1>
             </a>
           </Link>
-          <a
-            className="text-md font-bold cursor-pointer  absolute right-10"
-            onClick={() => setCartOpen(!cartOpen)}
-          >
-            <div className="relative mt-2">
-              <BsBag size="1.5rem" />
-              <div
-                style={{ fontSize: "10px", left: "10px" }}
-                className="absolute top-1 text-sm"
-              >
-                {cartQuantity}
-              </div>
-            </div>
-          </a>
         </div>
-        <div className="flex flex-row  pt-5 ">
+        <div className="nav-pages text-center md:ml-72 md:pl-96 flex justify-around">
           <div>
-            <Link href="/info/about" passHref>
-              <a className="cursor-pointer">
-                <span className="text-lg pt-1 px-4  ">About</span>
-              </a>
-            </Link>
+            <a href="#body" className="cursor-pointer">
+              <span className="text-lg pt-1 px-2  sm:px-4">Body</span>
+            </a>
+          </div>
+          <div>
+            <a href="#sunglasses" className="cursor-pointer ">
+              <span className="text-lg pt-1 px-2  sm:px-4">Sunglasses</span>
+            </a>
+          </div>
+          <div>
+            <a href="#earrings" className="cursor-pointer ">
+              <span className="text-lg pt-1 px-2  sm:px-4">Earrings</span>
+            </a>
           </div>
 
-          <div>
-            <Link href="/info/contact" passHref>
-              <a className="cursor-pointer ">
-                <span className="text-lg pt-1 px-4 ">Contact</span>
-              </a>
-            </Link>
+          <div className="nav-cart">
+            <a
+              className="text-md font-bold cursor-pointer  absolute right-5"
+              onClick={() => setCartOpen(!cartOpen)}
+            >
+              <div className="relative">
+                <BsBag size="1.5rem" />
+                <div
+                  style={{ fontSize: "10px", left: "10px" }}
+                  className="absolute top-1 text-sm"
+                >
+                  {cartQuantity}
+                </div>
+              </div>
+            </a>
+            <MiniCart cart={cart} />
           </div>
-
-          <MiniCart cart={cart} />
         </div>
       </div>
     </header>
